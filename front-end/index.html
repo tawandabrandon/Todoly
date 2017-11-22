@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+  <section>
+    <container>
+      <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <ul class="left">
+              <li><a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a></li>
+            </ul>
+            <span>Todoly - plan your day</span>
+            <ul class="right">
+              <li><a href="#!"><i class="material-icons">notifications</i></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <ul id="slide-out" class="side-nav">
+        <li><div class="user-view">
+          <div class="background">
+            <img src="img/office.jpg">
+          </div>
+          <a href="#!user"><img class="circle" src="img/yuna.jpg"></a>
+          <a href="#!name"><span class="white-text name">Tawanda Brandon</span></a>
+          <a href="#!email"><span class="white-text email">i@tawandabrandon.com</span></a>
+        </div></li>
+        <li><a href="#" class="waves-effect"><i class="material-icons">person</i>Profile</a></li>
+        <li><a href="#" class="waves-effect"><i class="material-icons">group</i>Team</a></li>
+        <li><a href="#" class="waves-effect"><i class="material-icons">assignment_ind</i>Projects</a></li>
+        
+        <li><div class="divider"></div></li>
+        <li><a class="waves-effect" href="#!">Settings</a></li>
+        <li><a class="waves-effect" href="#!">Abouts</a></li>
+      </ul>
+      
+      <!-- The folating button with options -->
+
+      <div class="fixed-action-btn click-to-toggle">
+        <a class="btn-floating btn-large red pulse" btn="pulse">
+          <i class="large material-icons">add</i>
+        </a>
+        <ul>
+          <li><a class="btn-floating red" id="home"><i class="material-icons">person</i></a></li>
+          <li><a class="btn-floating yellow darken-1"><i class="material-icons">assignment_ind</i></a></li>
+          <li><a class="btn-floating green modal-trigger" href="#new"><i class="material-icons">mode_edit</i></a></li>
+        </ul>
+      </div>
+    </container>
+    <div>
+    	      <ul class="collection">
+		        <li class="collection-item dismissable done"><div>MyDomain - web based WHOIS<a href="#!" class="secondary-content"><i class="material-icons">star</i> <i class="material-icons">check_box</i></a></div></li>
+		        <li class="collection-item dismissable"><div>Todoly - project mgt & Todoly<a href="#!" class="secondary-content"><i class="material-icons">star_border</i> <i class="material-icons">check_box_outline_blank</i></a></div></li>
+		        <li class="collection-item dismissable"><div>Oktane - AI for chat<a href="#!" class="secondary-content"><i class="material-icons">star</i> <i class="material-icons">check_box_outline_blank</i></a></div></li>
+		        <li class="collection-item dismissable"><div>Foril - Fake news checkers	<a href="#!" class="secondary-content"><i class="material-icons">star_border</i> <i class="material-icons">check_box_outline_blank</i></a></div></li>
+		      </ul>
+    </div>
+
+
+    <div id="new" class="modal modal-fixed-footer flow-text">
+      <div class="modal-content">
+        <h4>New Todo</h4>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field">
+                <input id="input_text" type="text" data-length="36">
+	            <label for="input_text">Title</label>
+              </div>
+			  <input type="text" id="datepicker" class="datepicker">
+			  <p>
+			      <input type="checkbox" id="test6" checked="checked" />
+			      <label for="test6">Status</label>
+			  </p>	
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="Materialize.toast('Saved!', 4000)" >Save</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="Materialize.toast('Cancelled!', 4000)" >Cancel</a>
+      </div>
+    </div>
+
+
+  </section>
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script>
+	    $(".button-collapse").sideNav();
+	    $('.modal').modal();
+
+	    //scale-toggle
+	    $('#home').on('click', function () {
+	      $('#home').addClass('scale-out');
+	      console.log('Clicked')
+	    });
+	    //remove pulse onCLick
+	    $('#pulse').on('click', function () {
+	    $(this).toggleClass('pulse')
+	    //add date picker
+	      $('.datepicker').pickadate({
+		    selectMonths: true, // Creates a dropdown to control month
+		    selectYears: 15, // Creates a dropdown of 15 years to control year,
+		    today: 'Today',
+		    clear: 'Clear',
+		    close: 'Ok',
+		    closeOnSelect: false // Close upon selecting a date,
+		  });
+		 //character counter
+		   $(document).ready(function() {
+		    $('input#input_text, textarea#textarea1').characterCounter();
+		  });
+	});
+  </script>
+</body>
+</html>
